@@ -1,0 +1,108 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2759
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fswiss\fcharset0 Helvetica-Bold;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;}
+\paperw11900\paperh16840\margl1133\margr1133\margb1133\margt1133\vieww15660\viewh13760\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs20 \cf2 \expnd0\expndtw0\kerning0
+# \'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97#\
+# \'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97#\
+# 
+\f1\b KILOGAS: Catalog of global properties
+\f0\b0 \
+#\
+# Catalog indented for team consumption, not public release \
+# Created by A. Saintonge  \
+# Last updated 30 September 2024\
+# \'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97#\
+# \'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97#\
+# 
+\f1\b Identifiers and basic properties
+\f0\b0  \
+# \'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97#\
+   KGAS_ID			INT64		KILOGAS catalog ID\
+   IAUname			STRING	IAU name (based on coordinates) \
+   ID				STRING	Galaxy ID/name in the original MaNGA / SAMI catalog (see next column) \
+   SURVEY			STRING	MANGA or SAMI \
+   RA 				FLOAT64	RA, J2000 [decimal degrees]\
+   DEC				FLOAT64	Dec, J2000 [decimal degrees]\
+   Z				FLOAT32	Redshift\
+\
+# \'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97#\
+# 
+\f1\b Stellar masses and star formation rates 
+\f0\b0 \
+# note:  All the SFRs are given in units of log(Msun/yr), stellar masses in log(Msun), and for a Chabrier IMF \
+#          We recommend the use of LOGMSTAR_BEST and LOGSFR_BEST\
+# \'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97#\
+   LOGMSTAR_GSWLC		FLOAT32	log(Stellar mass) from GSWLC-X1 catalog \
+   LOGMSTAR_ERR_GSWLC	FLOAT32	Error on LOGMSTAR_GSWLC\
+   LOGSFR_GSWLC		FLOAT32	log(SFR) from GSWLC-X1 catalog \
+   LOGSFR_ERR_GSWLC	FLOAT32	Error on LOGSFR_GSWLC	\
+   LOGMSTAR_SDSS		FLOAT32	log(Mstar) from SDSS MPA/JHU catalog\
+   LOGSFR_SDSS		FLOAT32	log(SFR) from SDSS MPA/JHU catalog\
+   LOGMSTAR_BEST 		FLOAT32	GSWLC value if available, if not then MPA/JHU value \
+   LOGSFR_BEST 		FLOAT32	GSWLC value if available, if not then MPA/JHU value \
+\
+# \'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97#\
+# 
+\f1\b Spectral information
+\f0\b0   \
+# \'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97#\
+   N2HA				FLOAT32	log(FLUX_NII_6583/FLUX_Halpha_6562) (using fluxes from SDSS DR7)\
+   O3HB 			FLOAT32         	log(FLUX_OIII_5006/FLUX_HBeta_4861) (using fluxes from SDSS DR7)\
+   BALMER			FLOAT32	flux(Halpha) / flux(Hbeta)\
+   BALMER_ERR		FLOAT32	Error on BALMER\
+   Z_PP04_N2 			FLOAT32	12+logO/H from N2Ha using Pettini&Pagel (2004)\
+   Z_PP04_O3N2  		FLOAT32	12+logO/H from N2Ha and O3Hb using Pettini&Pagel (2004)\
+   AGNCLASS			INT16		BPT-based AGN classification, -1:undetermined, 0:inactive, 1:SFing, 2:Composite, 3:AGN, 4:Seyfert		\
+\
+# \'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97#\
+# 
+\f1\b Structural information  
+\f0\b0  \
+# \'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97#\
+   SERSIC			FLOAT32	Sersic index from NASA Sloan Atlas (v1.0.1) \
+   R50_ARCSEC		FLOAT32	r-band 50% flux radius (ELPETRO_TH50_R) from NSA (v1.0.1) [arcsec]\
+   R90_ARCSEC 		FLOAT32	r-band 90% flux radius (ELPETRO_TH90_R) from NSA (v1.0.1) [arcsec]\
+   R50_KPC			FLOAT32	same as R50_ARCSEC but converted to kpc [kpc]\
+   SIZE_REF			INT16		if =2, then the size information is not from NSA but from original MaNGA/SAMI catalog \
+\
+# \'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97#\
+# 
+\f1\b Cross-matches with other catalogs 
+\f0\b0  \
+# in all cases, a flag with value of 1 indicates that the galaxy is found in the given sample/reference \
+# \'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97#\
+\
+   FLAG_ALMAQUEST		INT16		ALMaQUEST sample 	\
+   FLAG_EDGE			INT16		EDGE-CALIFA sample 	\
+   FLAG_SAMIALMA		INT16		ALMA Cycle5 SAMI follow up (Hogarth et al. 2021)\
+   FLAG_ALMAQUEST		INT16		ALMaQUEST sample 	\
+   FLAG_ALMAARCHIVE	INT16		Similar data products already found in ALMA archive (as of Cycle 8)\
+   FLAG_PACS			INT16		Coverage in Herschel/PACS imaging \
+   FLAG_SPIRE			INT16		Coverage in Herschel/SPIREimaging 	\
+   FLAG_HELP			INT16		Galaxy in the Herschel HELP database \
+   FLAG_WISE			INT16		Galaxy has flux detected in at least one of the WISE bands \
+   \
+# \'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97#\
+# 
+\f1\b Radio measurements  
+\f0\b0  \
+# \'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97#\
+   FLAG_HI			INT16		HI observations ( 1=detection, 2=non-detection, 3=HI upcoming/existing, -9=N/A ) 	\
+   HIREF			INT16		HI data reference (1=SAMI, 2=MaNGA) \
+   LOGMHI			FLOAT32	log(MHI/Msun) \
+   FLAG_NVSS			INT16		Galaxy in the NVSS (1.4GHz VLA survey) \
+   FLUX_20CM			FLAT32		1.4GHz continuum flux from NVSS (if FLAG_NVSS=1, -99 otherwise) \
+   FLUX_20CM_ERR		FLAT32		Error on 1.4GHz continuum flux from NVSS (if FLAG_NVSS=1, -99 otherwise)\
+\
+# \'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97#\
+# 
+\f1\b ALMA observing   
+\f0\b0  \
+# \'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97#\
+   ArrayConfig			BYTES2	ALMA array configuration \
+   SB_num			ING64		KILOGAS ALMA SB number }

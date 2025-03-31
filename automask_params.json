@@ -1,0 +1,42 @@
+{
+  "12m": {
+    "continuum": {
+      "usemask": "auto-multithresh",
+      "sidelobethreshold": 2.0,
+      "noisethreshold": 4.25,
+      "lownoisethreshold": 1.5,
+      "minbeamfrac": 0.3,
+      "growiterations": 75,
+      "negativethreshold": 0.0
+    },
+    "line": {
+      "usemask": "auto-multithresh",
+      "sidelobethreshold": 2.0,
+      "noisethreshold": 4.25,
+      "lownoisethreshold": 1.5,
+      "minbeamfrac": 0.3,
+      "growiterations": 75,
+      "negativethreshold": 15.0
+    }
+  },
+  "7m+12m": {
+    "continuum": {
+      "usemask": "auto-multithresh",
+      "sidelobethreshold": 2.0,
+      "noisethreshold": 4.25,
+      "lownoisethreshold": 1.5,
+      "minbeamfrac": 0.3,
+      "growiterations": 75,
+      "negativethreshold": 0.0
+    },
+    "line": {
+      "usemask": "auto-multithresh",
+      "sidelobethreshold": 2.0,
+      "noisethreshold": 4.25,
+      "lownoisethreshold": 1.5,
+      "minbeamfrac": 0.3,
+      "growiterations": 75,
+      "negativethreshold": 0.0
+    }
+  }
+}
