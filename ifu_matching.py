@@ -120,9 +120,9 @@ for i, kg_id in enumerate(source_list):
     # Create mask for IFU table
     ifu_mask = ifu_sum_tab['KGAS_ID'] == kg_id
     # Import IFU data
-    ifu_name = ('KG-' + ifu_sum_tab['Survey'][ifu_mask][0] + '-' +
+    ifu_name = ('KGAS-' + kg_id+'-'+ ifu_sum_tab['Survey'][ifu_mask][0] + '-' +
                 ifu_sum_tab['Survey_ID'][ifu_mask][0] +
-                '.Pipe3D.cube.fits')
+                '_Ha_map.fits')
     ifu_file = rpath + 'ifu_info/ifu_data/' + ifu_name
     ifu_casa = ppath + dir_name + g_name + '_ifu.image'
     importfits(fitsimage=ifu_file, imagename=ifu_casa,
