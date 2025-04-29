@@ -20,7 +20,7 @@ The scripts require calibrated MSs that are located within the standard director
 ```
 [project code]/science_goal.uid___*/group.uid___*/member.uid___*/calibrated/
 ```
-This was a design choice motivated by not making the user have to manage the location of MSs and perform lots of spliting and concatenating prior to imaging, as these both take a loot of time and can increase the size on disk substantially (especially for large projects). It also makes it easier to trace any issues in the imaging products back to the source MSs.
+This was a design choice motivated by not making the user have to manage the location of MSs and perform lots of spliting and concatenating prior to imaging, as these both take a lot of time and can increase the size on disk substantially (especially for large projects). It also makes it easier to trace any issues in the imaging products back to the source MSs.
 
 ### band_names.json
 This is a dictionary containing the long band names and their respective short names (user defined) that are used to refer to the bands in the rest of the scripts and iamging products. The long names can be found by running
@@ -62,7 +62,7 @@ This is the main confguration file that all of the scripts depend on. Default va
 There are three main scripts that are all are intended to be run within CASA.
 
 ## ms_finding.py
-This script is responsible for locating all of the paths to the MSs in the project and matching them to the science targets withing them. This script only needs to be run once, or if more targets/observations are added to the project or any changes are made to the paths of the MSs. It requires a FITS table that contains the KILOGAS IDs, IAU names and ALMA Scheduling Block numbers for all targets (this is located in `tables/KILOGAS_global_catalog.fits`). To run this script, start CASA in the parent directory of this repo and then type:
+This script is responsible for locating all of the paths to the MSs in the project, and matching them to the science targets contained within them. This script only needs to be run once, or if more targets/observations are added to the project or any changes are made to the paths of the MSs. It requires a FITS table that contains the KILOGAS IDs, IAU names and ALMA Scheduling Block numbers for all targets (this is located in `tables/KILOGAS_global_catalog.fits`). To run this script, start CASA in the parent directory of this repo and then type:
 ```python
 CASA <1>: execfile('kilogas_imaging/ms_finding.py')
 ```
@@ -111,7 +111,7 @@ The imaging product names follow the format:
 ```
 KGAS[ID]_[band]{_channel width}_[telescope array].[image type]
 ```
-They are written to `[prod_path]/[dir_name]/original/KGAS[ID]/`, and the summary tables are written to `[prod_path]/[dir_name]/`. Note that the channel width is only included for line image cubes, and not for the continuum images.
+They are written to `[prod_path]/[dir_name]/original/KGAS[ID]/`, and the summary tables are written to `[prod_path]/[dir_name]/original/`. Note that the channel width is only included for line image cubes, and not for the continuum images.
 
 The summary tables produced by the pipeline contain quite a lot of useful information, such as:
 * Beam properties (major and minor axis lengths, position angle)
@@ -120,10 +120,11 @@ The summary tables produced by the pipeline contain quite a lot of useful inform
 * Maximum resolvable scale
 * Projected baseline lengths (min, max, 5th and 80th percentile)
 * Calibrators (flux, phase, bandpass)
-If the pipeline is re-run then these tables will be read in and updated, so if only you want to re-image only a few sources, only those sources will be updated in the summary tables.
+
+If the pipeline is re-run then these tables will be read in and updated, so if only you want to re-image a few sources, only those sources will be updated in the summary tables.
 
 ## ifu_matching.py
-This script is responsible for convolving and regridding the ALMA line products to the resolution and grid size of the MaNGA/SAMI IFU data. This script requires a table (`ifu_info/matched_ids_fwhm.txt`) that contains KILOGAS IDs, MaNGA/SAMI ID's and the FWHM of the IFU data for each source. The script also required some a single-plane reference IFU image for the regridding step, whicha are located in `ifu_info/ifu_data/`.
+This script is responsible for convolving and regridding the ALMA line products to the resolution and grid size of the MaNGA/SAMI IFU data. This script requires a table (`ifu_info/matched_ids_fwhm.txt`) that contains KILOGAS IDs, MaNGA/SAMI ID's and the FWHM of the IFU data for each source. The script also requires some single-plane reference IFU images for the regridding step, which are located in `ifu_info/ifu_data/`.
 
 To run this script, start CASA in the parent directory of this repo and then type:
 ```python
